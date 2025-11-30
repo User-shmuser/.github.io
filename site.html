@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: background 0.5s ease;
+        }
+        
+        /* Фон для главной страницы */
+        body.home {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        /* Фон для страницы обучения */
+        body.education {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        /* Фон для страницы о сайте */
+        body.about {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        /* Фон для страницы пожеланий */
+        body.wish {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: #333;
+        }
+
+        nav {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        button {
+            padding: 12px 20px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        button:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content {
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.wish .content {
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+        
+        h1, h2 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.wish h1, body.wish h2 {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            color: #2c3e50;
+        }
+        
+        ul {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            list-style-type: none;
+        }
+        
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        li:last-child {
+            border-bottom: none;
+        }
+        
+        body.wish ul {
+            background: rgba(44, 62, 80, 0.1);
+            color: #333;
+        }
+        
+        body.wish li {
+            border-bottom: 1px solid rgba(44, 62, 80, 0.2);
+        }
+    </style>
+</head>
+<body class="home">
+    <!-- Навигация -->
+    <nav>
+        <button onclick="showPage('home')">Главная</button>
+    </nav>
+
+    <!-- Контентные страницы -->
+    <div id="home" class="content">
+        <h1>Добро пожаловать!</h1>
+        <p>Меня зовут Казаков Тимофей Алексеевич.</p>
+        
+        <div>
+            <button onclick="showPage('education')">Мое обучение</button>
+            <button onclick="showPage('about')">Мой сайт</button>
+            <button onclick="showPage('wish')">Пожелание</button>
+        </div>
+    </div>
+
+    <div id="education" class="content" style="display:none">
+        <h2>Мое обучение</h2>
+        <p>Я учусь в БГУ в магистратуре ММФ по специальности Механика и математическое моделирвование</p>
+        <p>БГУ - ведущий университет, который предоставляет качественное образование 
+           и открывает перед студентами множество возможностей для профессионального роста!</p>
+    </div>
+
+    <div id="about" class="content" style="display:none">
+        <h2>О сайте</h2>
+        <p>Этот сайт содержит 4 страницы:</p>
+        <ul>
+            <li>Главная страница</li>
+            <li>Мое обучение</li>
+            <li>Информация о сайте</li>
+            <li>Пожелания</li>
+        </ul>
+        <p>Сайт был создан: <span id="creationDate"></span></p>
+        <p>Технологии: HTML, CSS, JavaScript</p>
+    </div>
+
+    <div id="wish" class="content" style="display:none">
+        <h2>Пожелание для студентов и преподавателей</h2>
+        <p>Дорогие студенты и преподаватели!</p>
+        <p>В преддверии сессии хочу пожелать всем:</p>
+        <ul>
+            <li>Студентам - уверенности в своих знаниях и спокойствия на экзаменах</li>
+            <li>Преподавателям - терпения и понимания</li>
+            <li>Всем - продуктивной работы и отличных результатов!</li>
+        </ul>
+        <p>Пусть сессия пройдет гладко, оценки будут высокими, 
+           а полученные знания обязательно пригодятся в будущем!</p>
+        <p><strong>Ни пуха, ни пера!</strong></p>
+    </div>
+
+    <script>
+        // Показываем дату создания
+        document.getElementById('creationDate').textContent = new Date().toLocaleDateString('ru-RU');
+
+        function showPage(pageId) {
+            // Скрываем все страницы
+            document.querySelectorAll('.content').forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Показываем выбранную страницу
+            document.getElementById(pageId).style.display = 'block';
+            
+            // Меняем фон body в зависимости от страницы
+            document.body.className = pageId;
+        }
+        
+        // Инициализация - показываем главную страницу
+        showPage('home');
+    </script>
+</body>
+</html>
